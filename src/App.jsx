@@ -1,9 +1,7 @@
-"use client"
-
 import { useState, useEffect } from "react"
 import { Menu, X, Github, Linkedin, Mail, ExternalLink, Code, Palette, Zap, ChevronRight, Sparkles } from "lucide-react"
 
-export default function Home() {
+export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrollY, setScrollY] = useState(0)
   const [hoveredProject, setHoveredProject] = useState(null)
