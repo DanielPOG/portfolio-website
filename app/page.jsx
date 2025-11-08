@@ -6,8 +6,8 @@ import { Menu, X, Github, Linkedin, Mail, ExternalLink, Code, Palette, Zap, Chev
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrollY, setScrollY] = useState(0)
-  const [hoveredProject, setHoveredProject] = useState<number | null>(null)
-  const [particles, setParticles] = useState<Array<{ id: number; x: number; y: number; vx: number; vy: number }>>([])
+  const [hoveredProject, setHoveredProject] = useState(null)
+  const [particles, setParticles] = useState([])
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY)

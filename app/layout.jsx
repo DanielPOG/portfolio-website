@@ -1,12 +1,11 @@
-import type React from "react"
+import React from "react"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
-import type { Metadata } from "next"
 
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "Mi Portafolio | Programador Full Stack",
   description:
     "Portafolio profesional de programador especializado en desarrollo web moderno con React, Next.js y Tailwind CSS",
@@ -30,11 +29,7 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+export default function RootLayout({ children }) {
   return (
     <html lang="es">
       <body className={`font-sans antialiased`}>
