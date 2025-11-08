@@ -177,14 +177,26 @@ export default function Home() {
               </p>
 
               <div className="flex flex-wrap gap-4 pt-6 animate-fadeInUp" style={{ animationDelay: "0.5s" }}>
-                <button className="group relative px-8 py-4 bg-gradient-to-r from-primary to-accent text-primary-foreground rounded-xl font-bold text-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex items-center gap-2 overflow-hidden">
+                {/* Enlace a GitHub - abre en nueva pestaña */}
+                <a
+                  href="https://github.com/DanielPOG"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative px-8 py-4 bg-gradient-to-r from-primary to-accent text-primary-foreground rounded-xl font-bold text-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex items-center gap-2 overflow-hidden"
+                >
                   <div className="absolute inset-0 bg-gradient-to-r from-secondary to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <span className="relative">Ver mi trabajo</span>
                   <ChevronRight size={24} className="relative group-hover:translate-x-1 transition-transform" />
-                </button>
-                <button className="px-8 py-4 border-3 border-primary text-primary rounded-xl font-bold text-lg hover:bg-primary/20 hover:shadow-lg hover:scale-105 transition-all duration-300">
+                </a>
+
+                {/* Enlace para descargar el CV - requiere que el PDF esté en /public */}
+                <a
+                  href="/CVHarvardPRO.pdf"
+                  download
+                  className="px-8 py-4 border-3 border-primary text-primary rounded-xl font-bold text-lg hover:bg-primary/20 hover:shadow-lg hover:scale-105 transition-all duration-300"
+                >
                   Descargar CV
-                </button>
+                </a>
               </div>
 
               {/* Social Links */}
