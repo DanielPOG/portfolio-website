@@ -1,0 +1,48 @@
+name: Build and deploy to Azure Web App (Service Principal)
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    env:
+      PACKAGE_ZIP: app.zip
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Use Node.js 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Configure npm to accept legacy peer deps
+        run: |
+          npm config set legacy-peer-deps true
+          npm config get legacy-peer-deps
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Prepare deployment package with all necessary files
+        run: |
+          zip -r $PACKAGE_ZIP .next public package.json package-lock.json next.config.mjs app components lib styles .npmrc || true
+          ls -lah $PACKAGE_ZIP
+
+      - name: Azure login (Service Principal)
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Deploy to Web App using az cli
+        run: |
+          az webapp deploy --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} --name ${{ secrets.AZURE_WEBAPP_NAME }} --src-path ${{ env.PACKAGE_ZIP }} --type zip
+
+      - name: Configure Azure Web App to install dependencies
+        run: |
+          az webapp config appsettings set --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} --name ${{ secrets.AZURE_WEBAPP_NAME }} --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true NPM_CONFIG_LEGACY_PEER_DEPS=true WEBSITE_NODE_DEFAULT_VERSION=18-lts
