@@ -64,6 +64,10 @@ jobs:
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_812FB4E516A245348034A8BB82B42E13 }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_0FBB6BA3DA35495D914B164C60A2EED3 }}
 
+      - name: Configure Azure Web App startup command
+        run: |
+          az webapp config set --resource-group portafolio --name portafoliowebsite --startup-file "node server.js"
+
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
