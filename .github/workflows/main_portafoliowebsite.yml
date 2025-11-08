@@ -28,6 +28,8 @@ jobs:
           npm install
           npm run build --if-present
           npm run test --if-present
+      - name: Ensure Next.js binary is executable
+        run: chmod +x node_modules/.bin/next
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
