@@ -28,32 +28,32 @@ export default function Home() {
 
   const projects = [
     {
-      title: "E-commerce Platform",
-      description: "Plataforma de tienda online con carrito de compras, pagos integrados y dashboard de administrador.",
-      tech: ["React", "Next.js", "Stripe", "Tailwind"],
-      link: "#",
-      icon: "🛍️",
+      title: "SGC",
+      description: "Sistema de gestión de cargos SENA para optimizar el seguimiento de los usuarios de planta y una mejora para recursos humanos.",
+      tech: ["Django", "Django Rest Framework", "PostgreSQL", "Tailwind", "CSS"],
+      link: "https://github.com/DanielPOG/SGC",
+      icon: "📚",
     },
     {
-      title: "Chat Application",
-      description: "Aplicación de chat en tiempo real con autenticación y base de datos sincronizada.",
-      tech: ["React", "Firebase", "WebSocket", "Tailwind"],
-      link: "#",
-      icon: "💬",
+      title: "GapLy",
+      description: "Aplicacion de Reducción de brecha laboral en colombia mediante herramientas tecnologicas con IA (colaborador).",
+      tech: ["React", "Next.js", "FastAPI","PostgreSQL", "Tailwind"],
+      link: "https://github.com/xFeDEV/gaply",
+      icon: "🤖",
     },
     {
-      title: "Task Management",
-      description: "Herramienta de gestión de tareas con prioridades, categorías y notificaciones.",
-      tech: ["React", "Node.js", "MongoDB", "Tailwind"],
-      link: "#",
-      icon: "✓",
+      title: "Openix",
+      description: "Control de entrada y salida de los usuarios SENA mediante pantallas con codigo QR.",
+      tech: ["JavaScript", "Django", "MySQL", "Bootstrap"],
+      link: "https://github.com/G1lber/Proyecto-ControldeEntrada",
+      icon: "🚪",
     },
     {
-      title: "Weather Dashboard",
-      description: "Dashboard interactivo de clima con predicciones y datos en tiempo real.",
-      tech: ["React", "API REST", "Charts", "Tailwind"],
-      link: "#",
-      icon: "☀️",
+      title: "Carnetizacion Digital",
+      description: "Carnetiza a los usuarios SENA mediante un sistema digital.",
+      tech: [ "Django","MySQL","JavaScript", "Bootstrap"],
+      link: "https://github.com/DanielPOG/Carnetizacionv3",
+      icon: "🆔",
     },
   ]
 
@@ -190,11 +190,11 @@ export default function Home() {
               {/* Social Links */}
               <div className="flex gap-4 pt-8 animate-fadeInUp" style={{ animationDelay: "0.6s" }}>
                 {[
-                  { icon: Github, link: "#", label: "Github" },
-                  { icon: Linkedin, link: "#", label: "LinkedIn" },
-                  { icon: Mail, link: "#", label: "Email" },
+                  { icon: Github, link: "https://github.com/DanielPOG", label: "Github" },
+                  { icon: Linkedin, link: "https://www.linkedin.com/in/daniel-caicedo-5b6140362/", label: "LinkedIn" },
+                  { icon: Mail, link: "mailto:santiagocaicedo140@gmail.com", label: "Email" },
                 ].map((social, idx) => (
-                  <a
+                  <a target="_blank" rel="noopener noreferrer"
                     key={idx}
                     href={social.link}
                     className="w-14 h-14 rounded-full border-3 border-primary text-primary hover:bg-gradient-to-r hover:from-primary hover:to-accent hover:text-primary-foreground hover:scale-125 hover:shadow-2xl transition-all duration-300 flex items-center justify-center group relative overflow-hidden"
